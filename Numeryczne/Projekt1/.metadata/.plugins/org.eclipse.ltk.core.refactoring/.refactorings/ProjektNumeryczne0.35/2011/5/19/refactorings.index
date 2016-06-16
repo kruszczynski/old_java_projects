@@ -1,0 +1,12 @@
+1304424451764	Delete element
+1304431943478	Rename field 'matVec'
+1304432414204	Rename field 'instructionsAF'
+1304433942740	Rename type 'OpenButtonListener'
+1304434595539	Copy compilation units
+1304481563095	Rename method 'checkSizes'
+1304482118615	Rename field 'helper'
+1304487555051	Rename type 'JCBOneActionListener'
+1304487563961	Rename type 'JCBTwoActionListener'
+1304487572620	Rename type 'JCBThreeActionListener'
+1304488150334	Rename type 'JCBOneItemListener'
+1304579957675	Rename field 'errorsLabel'

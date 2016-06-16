@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;button&apos; in &apos;TestInterface&apos; to &apos;colorButton&apos;&#x0A;- Original project: &apos;PokerCalculator0.4&apos;&#x0A;- Original element: &apos;TestInterface.button&apos;&#x0A;- Renamed element: &apos;TestInterface.colorButton&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;button&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;{TestInterface.java[TestInterface^button" name="colorButton" references="true" setter="false" stamp="1287871594854" textual="false" version="1.0"/>
+</session>

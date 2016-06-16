@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 3 elements(s) to &apos;PokerCalculator0.4/src/(default package)&apos;&#x0A;- Original project: &apos;PokerCalculator0.2&apos;&#x0A;- Destination element: &apos;PokerCalculator0.4/src/(default package)&apos;&#x0A;- Original elements:&#x0A;     Board.java&#x0A;     Hand.java&#x0A;     Card.java&#x0A;- Update references to refactored element" description="Move compilation units" destination="=PokerCalculator0.4/src&lt;" element1="/src&lt;{Board.java" element2="/src&lt;{Hand.java" element3="/src&lt;{Card.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1280152370840" units="3" version="1.0"/>
+</session>

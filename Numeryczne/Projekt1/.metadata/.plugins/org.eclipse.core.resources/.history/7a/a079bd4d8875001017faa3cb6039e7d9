@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class TextConverter {
+	public double[][] convertText(String text){
+		text.replace(" ","").replace("/n","");
+		double[][] r=null;
+		String[] rows = null;
+
+		rows=text.split(";");
+		
+		String[][] mat = new String[rows.length][rows.length];
+		
+		for( String row : rows){
+			int iterator = 0;
+			String temp;
+			row.replace("{", "").replace("}","");
+			mat[iterator] = row.split(",");
+			iterator ++;
+			for(String str : mat[iterator]){
+				System.out.println(str);
+			}
+		}
+		
+		return r;
+	}
+}

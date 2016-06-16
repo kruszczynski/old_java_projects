@@ -1,0 +1,4 @@
+
+public class MatAreasRow {
+	private MatAreaCell[] matCell;
+}

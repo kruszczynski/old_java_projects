@@ -1,0 +1,35 @@
+import javax.swing.*;
+
+public class MatAreasRow {
+	private MatAreaCell[] matCell;
+	private JPanel panel;
+	int dim;
+	
+	public MatAreasRow(int n){
+		dim = n;
+		matCell = new MatAreaCell[n];
+		panel = new JPanel();
+		panel.setLayout( new BoxLayout(panel, BoxLayout.X_AXIS));
+		for( MatAreaCell cell : matCell){
+			cell = new MatAreaCell();
+			panel.add(cell.getPanel());
+		}
+		
+	}
+	
+	public JPanel getPanel(){
+		return panel;
+	}
+	
+	public double[] getRowDoubles(){
+		double[] d = new double[dim];
+		int iterator = 0;
+		for(MatAreaCell cell : matCell){
+			d[iterator] = Double.parseDouble(cell.getText());
+			iterator++;
+		}
+		return d;
+	}
+	
+	
+}

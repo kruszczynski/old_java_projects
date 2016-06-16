@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 1 elements(s) to &apos;IfSample.java&apos;&#x0A;- Original project: &apos;eeeee&apos;&#x0A;- Destination element: &apos;IfSample.java&apos;&#x0A;- Original element: &apos;fdfs.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" element1="/src&lt;{fdfs.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1269039477256" target="/lekcja1/IfSample.java" units="1" version="1.0"/>
+</session>

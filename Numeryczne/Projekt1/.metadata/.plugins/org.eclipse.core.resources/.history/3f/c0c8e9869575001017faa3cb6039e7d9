@@ -1,0 +1,28 @@
+import javax.swing.*;
+// import java.awt.*;
+
+
+
+public class MatAreaCell {
+	private JTextArea area;
+	private JLabel label;
+	private JPanel panel;
+	
+	public MatAreaCell(){
+		area = new JTextArea();
+		label = new JLabel(" ");
+		panel = new JPanel();
+		panel.add(area);
+		panel.add(label);
+		
+	}
+	
+	public JPanel getPanel(){
+		return panel;
+	}
+	
+	public String getText(){
+		return area.getText();
+	}
+	
+}

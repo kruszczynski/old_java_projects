@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;ProjektNumeryczne0.35/src&apos;&#x0A;- Original project: &apos;ProjektNumeryczne0.2&apos;&#x0A;- Destination element: &apos;ProjektNumeryczne0.35/src&apos;&#x0A;- Original elements:&#x0A;     SystemHelper.java&#x0A;     Main.java&#x0A;     DecompHelper.java" description="Copy compilation units" destination="=ProjektNumeryczne0.35/src" element1="/src&lt;{SystemHelper.java" element2="/src&lt;{Main.java" element3="/src&lt;{DecompHelper.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1304424169022" units="3" version="1.0"/>
+</session>

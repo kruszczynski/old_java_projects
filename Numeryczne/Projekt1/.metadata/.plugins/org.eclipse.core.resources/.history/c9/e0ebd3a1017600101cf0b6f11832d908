@@ -1,0 +1,17 @@
+import java.util.*;
+public class asdfg {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<Integer> jan = new ArrayList<Integer>();
+		jan.add(3);
+		jan.add(4);
+		jan.add(3);
+		jan.trimToSize();
+		System.out.println(jan.size());
+	}
+
+}

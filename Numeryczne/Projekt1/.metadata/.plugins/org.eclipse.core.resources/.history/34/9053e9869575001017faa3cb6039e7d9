@@ -1,0 +1,32 @@
+import javax.swing.*;
+
+public class MatAreaArray {
+	private MatAreaRow[] matRows;
+	private JPanel panel;
+	int dim;
+	
+	public MatAreaArray(int n){
+		dim = n;
+		panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		matRows = new MatAreaRow[n];
+		for(MatAreaRow row : matRows){
+			row = new MatAreaRow(n);
+			panel.add(row.getPanel());
+		}
+	}
+	
+	public JPanel getPanel(){
+		return panel;
+	}
+	
+	public double[][] getMatrix(){
+		double[][] d = new double[dim][dim];
+		int iterator = 0;
+		for(MatAreaRow row : matRows){
+			d[iterator] = row.getRowDoubles();
+			iterator++;
+		}
+		return d;
+	}
+}

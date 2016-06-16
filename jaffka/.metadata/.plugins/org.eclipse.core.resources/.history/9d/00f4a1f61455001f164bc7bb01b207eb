@@ -1,0 +1,92 @@
+
+public class board {
+	private flop f = new flop();
+	private turn t = new turn();
+	private river r = new river();
+	private boolean allContent = false;
+	private boolean onTurnContent = false;
+	private boolean justFlopContent = false;
+
+	public board(){	
+	}
+	
+	public board( card a, card b,  card c, card d, card e){
+		if(a.isContent() == true && b.isContent() == true && c.isContent() == true && d.isContent() == true && e.isContent() == true){
+			f.set( a, b, c);
+			t.set( d );
+			r.set( e );
+			allContent = true;
+			onTurnContent = false;
+			justFlopContent = false;
+		}
+	}
+	public board( card a, card b,  card c, card d ){
+		if(a.isContent() == true && b.isContent() == true && c.isContent() == true && d.isContent() == true ){
+			f.set( a, b, c);
+			t.set( d );
+			onTurnContent = true;
+			allContent = false;
+			justFlopContent = false;
+		}
+	}
+	public board( card a, card b,  card c ){
+		if(a.isContent() == true && b.isContent() == true && c.isContent() == true ){
+			f.set( a, b, c);
+			justFlopContent = true;
+			allContent = false;
+			onTurnContent = false;
+		}
+	}
+	
+	public boolean isall(){
+		return allContent;
+	}
+	
+	public boolean isonTurn(){
+		return onTurnContent;
+	}
+	
+	public boolean isjustFlop(){
+		return justFlopContent;
+	}
+	
+	public card[] getBoard(){
+		if(f.iscontent() == true && t.iscontent() == false && r.iscontent() == false){
+			card res[] = new card[3];
+			card tflop[] = new card[3];
+			tflop = f.getFlop();
+			for( int i=0; i<=2; i++){
+				res[i] = tflop[i];
+			}
+			return res;
+		}
+		if(f.iscontent() == true && t.iscontent() == true && r.iscontent() == false){
+			card res[] = new card[4];
+			card tflop[] = new card[3];
+			tflop = f.getFlop();
+			for( int i=0; i<=2; i++){
+				res[i] = tflop[i];
+			}
+			res[3] = t.getTurn();
+			return res;
+		}
+		if(f.iscontent() == true && t.iscontent() == true && r.iscontent() == true){
+			card res[] = new card[5];
+			card tflop[] = new card[3];
+			tflop = f.getFlop();
+			for( int i=0; i<=2; i++){
+				res[i] = tflop[i];
+			}
+			res[3] = t.getTurn();
+			res[4] = r.getRiver();
+			return res;
+		}
+		else{
+			card a = new card();
+			card res[] = new card[1];
+			res[1]=a;
+			return res;
+		}
+	}
+
+}

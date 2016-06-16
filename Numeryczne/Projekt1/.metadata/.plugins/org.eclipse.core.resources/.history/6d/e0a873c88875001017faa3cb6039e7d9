@@ -1,0 +1,29 @@
+
+public class TextConverter {
+	public double[][] convertText(String text){
+		text.replace(" ","").replace("/n","");
+		double[][] r=null;
+		String[] rows = null;
+
+		rows=text.split(";");
+		
+		String[][] mat = new String[rows.length][rows.length];
+		
+		for( String row : rows){
+			int iterator = 0;
+			row.replace("{", "").replace("}","");
+			mat[iterator] = row.split(",");
+			
+			iterator ++;
+		}
+		
+		for(String[] row : mat){
+			for(String e : row){
+				System.out.print(e);
+			}
+			System.out.println();
+		}
+		
+		return r;
+	}
+}

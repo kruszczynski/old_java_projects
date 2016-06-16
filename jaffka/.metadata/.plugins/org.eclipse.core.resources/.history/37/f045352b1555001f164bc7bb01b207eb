@@ -1,0 +1,507 @@
+import java.util.Arrays;
+
+public class situation {
+	private hand hand1 = new hand();
+	private hand hand2 = new hand();
+	private board board = new board();
+	
+	public situation (hand h1, hand h2){
+		if(h1.isContent() == true && h2.isContent() == true){
+			hand1 = h1;
+			hand2 = h2;
+		}
+	}
+	
+	public situation (card h1a, card h1b, card h2a, card h2b){
+		if(		h1a.isContent() == true && 
+				h1b.isContent() == true &&
+				h2a.isContent() == true && 
+				h2b.isContent() == true){
+			hand1 = new hand( h1a, h1b);
+			hand2 = new hand( h2a, h2b);
+		}
+	}
+	
+	public situation (card h1a, card h1b, card h2a, card h2b, card fl1, card fl2, card fl3){
+		if(		h1a.isContent() == true && 
+				h1b.isContent() == true && 
+				h2a.isContent() == true && 
+				h2b.isContent() == true && 
+				fl1.isContent() == true && 
+				fl2.isContent() == true && 
+				fl3.isContent() == true){
+			hand1 = new hand( h1a, h1b);
+			hand2 = new hand( h2a, h2b);
+			board = new board(fl1, fl2, fl3);
+		}
+	}
+	
+	public situation (hand h1, hand h2, card fl1, card fl2, card fl3){
+		if(		h1.isContent() == true && 
+				h2.isContent() == true && 
+				fl1.isContent() == true && 
+				fl2.isContent() == true && 
+				fl3.isContent() == true){
+			hand1 = h1;
+			hand2 = h2;
+			board = new board(fl1,fl2,fl3);
+		}
+	}
+	
+	public situation (card h1a, card h1b, card h2a, card h2b, card fl1, card fl2, card fl3, card t1){
+		if(		h1a.isContent() == true && 
+				h1b.isContent() == true && 
+				h2a.isContent() == true && 
+				h2b.isContent() == true && 
+				fl1.isContent() == true && 
+				fl2.isContent() == true && 
+				fl3.isContent() == true &&
+				t1.isContent() == true){
+			hand1 = new hand( h1a, h1b);
+			hand2 = new hand( h2a, h2b);
+			board = new board(fl1, fl2, fl3, t1);
+		}
+	}
+	
+	public situation (hand h1, hand h2, card fl1, card fl2, card fl3, card t1){
+		if(		h1.isContent() == true && 
+				h2.isContent() == true && 
+				fl1.isContent() == true && 
+				fl2.isContent() == true && 
+				fl3.isContent() == true && 
+				t1.isContent() == true){
+			hand1 = h1;
+			hand2 = h2;
+			board = new board(fl1,fl2,fl3, t1);
+		}
+	}
+	
+	public situation (card h1a, card h1b, card h2a, card h2b, card fl1, card fl2, card fl3, card t1, card r1){
+		if(		h1a.isContent() == true && 
+				h1b.isContent() == true && 
+				h2a.isContent() == true && 
+				h2b.isContent() == true && 
+				fl1.isContent() == true && 
+				fl2.isContent() == true && 
+				fl3.isContent() == true &&
+				t1.isContent() == true &&
+				r1.isContent() == true){
+			hand1 = new hand( h1a, h1b);
+			hand2 = new hand( h2a, h2b);
+			board = new board(fl1, fl2, fl3, t1, r1);
+		}
+	}
+	
+	public situation (hand h1, hand h2, card fl1, card fl2, card fl3, card t1, card r1){
+		if(		h1.isContent() == true && 
+				h2.isContent() == true && 
+				fl1.isContent() == true && 
+				fl2.isContent() == true && 
+				fl3.isContent() == true && 
+				t1.isContent() == true &&
+				r1.isContent() == true){
+			hand1 = h1;
+			hand2 = h2;
+			board = new board(fl1,fl2,fl3, t1, r1);
+		}
+	}
+	
+	public situation (hand h1, hand h2, board b){
+		if(		h1.isContent() == true &&
+				h2.isContent() == true){
+			hand1 = h1;
+			hand2 = h2;
+			if( b.isall() == true || b.isjustFlop() == true || b.isonTurn() == true){
+				board = b;
+			}
+		}
+	}
+	
+	public situation (card h1a, card h1b, card h2a, card h2b, board b){
+		if(		h1a.isContent() == true &&
+				h1b.isContent() == true &&
+				h2a.isContent() == true &&
+				h2b.isContent() == true){
+			hand1 = new hand(h1a, h1b);
+			hand2 = new hand(h2a, h2b);
+			if( b.isall() == true || b.isjustFlop() == true || b.isonTurn() == true){
+				board = b;
+			}
+		}
+	}
+	
+	public boolean isPreFlop(){
+		if(		board.isjustFlop() == false &&
+				board.isall() == false &&
+				board.isonTurn() == false){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public boolean isOnFlop(){
+		if(	board.isjustFlop() == true ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public boolean isOnTurn(){
+		if(board.isonTurn() == true){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public boolean isOnRiver(){
+		if(board.isall() == true){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	/* 0 high card
+	 * 1 pair
+	 * 2 2 pair
+	 * 3 trips
+	 * 4 straight
+	 * 5 flush
+	 * 6 full house
+	 * 7 quads
+	 * 8 straight flush
+	 * 9 royal flush
+	*/
+	
+	public int[] handInt( hand tempHand ){
+		if(		board.isall() == true &&					//sprawdzamy czy jest 7 kart
+				tempHand.isContent() == true){
+			card cStr[] = new card[7];
+			cStr[0] = tempHand.card1();
+			cStr[1] = tempHand.card2();
+			card temp[] = new card[5];
+			temp = board.getBoard();
+			for(int i=0; i<5; i++){							//tworzymy array kart
+				cStr[i+2] = temp[i];
+			}
+			int figs[] = new int[7],
+				suits[] = new int[7];
+			for(int i=0; i<7; i++){
+				figs[i]=cStr[i].getFig();					//tworzymy arraye kolorow i figur
+				suits[i]=cStr[i].getSuit();
+			}
+			Arrays.sort(suits);								//sortujemy je
+			Arrays.sort(figs);
+			
+			//STRIT
+			
+			boolean isStraight = false;							//czy jest strit? (bool)
+			int strCnt = 1;									//licznik
+			int straightHc = -1;										//int najwyzszej karty strita
+			for(int i=1; i<7; i++){
+				if(figs[i] == figs[i-1] + 1){		//TODO co jesli 2 3 4 4 5 6 ??
+					strCnt++;
+					if( strCnt > 4 ){
+						straightHc = figs[i];										}
+				}
+				else if( (i == 4 || i == 5 || i == 6) && figs[i-1] == 12 && strCnt == 4){
+					if( figs[i] == 0){
+						strCnt++;
+						straightHc = 0;
+					}
+					else{
+						strCnt = 1;
+					}
+				}
+				else if( figs[i] == figs[i-1]){
+				}
+				else{
+					strCnt = 1;
+				}
+			}
+			if( strCnt > 4){
+				isStraight = true;
+			}
+			//Summary: isStraight - bool, straightHc - najwyzsza karta
+			
+			// KOLOR
+			
+			int fl = 1;
+			boolean isFlush = false;
+			int flSuit = -1;
+			int flushHc = -1;
+			for( int i=1;i<7;i++ ){
+				if( suits[i] == suits[i-1]){
+					fl++;
+					if( fl > 4){
+						flSuit = suits[i];
+					}
+				}
+				else{
+					fl = 1;
+				}
+			}
+			if( fl > 4){
+				isFlush = true;
+			}
+			if( isFlush == true){								//Sprawdzamy wysokosc koloru
+				for(int i=0;i<7;i++){
+					if( cStr[i].getSuit() == flSuit){
+						if( flushHc < cStr[i].getFig() ){
+							flushHc = cStr[i].getFig();
+						}
+					}
+				}
+			}
+			// Summary: isFlush, flushHc, flSuit
+			
+			// ROYAL/STRAIGHT FLUSH
+			boolean isSFlush = false,
+					isRFlush = false;
+			int royHc = -1;										//int najwyzszej karty pokera
+			if( isFlush == true && isStraight == true){
+				int royFig[] = new int[7];
+				int royCnt = 0;
+				for(int i=0;i<7;i++){
+					if( cStr[i].getSuit() == flSuit ){
+						royFig[royCnt] = cStr[i].getFig();
+						royCnt++;
+					}
+				}
+				
+				// algorytm z strita do wyznaczenia najwyzszej karty sposrod kart tego koloru
+				int royCnt2 = 1;									//licznik
+				for(int i=1; i<7; i++){
+					if(royFig[i] == royFig[i-1] + 1){
+						royCnt2++;
+						if( royCnt2 > 4 ){
+							royHc = royFig[i];
+							isSFlush = true;
+						}
+					}
+					else if( (i == 4 || i == 5 || i == 6) && royFig[i-1] == 12 && royCnt2 == 4){
+						if( royFig[i] == 0){
+							royCnt2++;
+							royHc = 0;
+							isRFlush = true;
+						}
+						else{
+							royCnt2 = 1;
+						}
+					}
+					else{
+						royCnt2 = 1;
+					}
+				}
+			}
+			// summary: isRFlush,isSFlush,royHc, kolor z flSuit
+			
+			// QUADS OR FULL HOUSE OR TRIPS OR TWO PAIR OR PAIR 
+			
+			int fullArray[] = new int[13];
+			for(int i=0;i<13;i++){
+				fullArray[i] = 0;
+			}
+			for( int i=0;i<13;i++ ){
+				for( int j=0;j<7;j++ ){
+					if( cStr[j].getFig() == i ){
+						fullArray[i]++;
+					}
+				}
+			}
+			// QUADS
+			boolean isQuads = false;
+			int quadsHc = -1;
+			for( int i=0;i<13;i++){
+				if( fullArray[i] == 4){
+					quadsHc = i;
+					isQuads = true;
+				}
+			}
+			// booleanskie wektory dla reszty
+			boolean trips[] = new boolean[13];
+			boolean pairs[] = new boolean[13];
+			for(int i=0;i<13;i++){
+				if( fullArray[i] == 3){
+					trips[i] = true;
+					pairs[i] = true;
+				}
+				else if( fullArray[i] == 2 ){
+					pairs[i] = true;
+					trips[i] = false;
+				}
+				else{
+					pairs[i] = false;
+					trips[i] = false;
+				}
+			}
+			// Full
+			boolean hiFull = false;
+			boolean loFull = false;
+			int fullHc = -1;
+			int fullLc = -1;
+			for(int i=12;i>-1;i--){
+				if( trips[i] == true ){
+					if( i == 0 ){
+						fullHc = i;
+						hiFull = true;
+					}
+					else{
+						hiFull = true;
+						if( i > fullHc ){
+							fullHc = i;
+						}
+					}
+				}
+				if( pairs[i] == true && i != fullHc ){
+					if( i == 0 ){
+						loFull = true;
+						fullLc = i;
+					}else{
+						loFull = true;
+						if( i > fullLc){
+							fullLc = i;
+						}
+					}
+				}
+			}
+			boolean isFull = false;
+			if( hiFull == true && loFull == true ){
+				isFull = true;
+			}
+			// Trips
+			boolean isTrips = false;
+			int tripsHc = -1;
+			if( loFull == false && hiFull == true ){
+				tripsHc = fullHc;
+			}
+			//2Pair
+			boolean isTwoPair = false;
+			int twoPairHc = -1,
+				twoPairLc = -1;
+			if( isTrips == false ){
+				if( pairs[0] == true ){
+					twoPairHc = 0;
+					for( int i = 1; i < 13; i++){
+						if(pairs[i] == true ){
+							twoPairLc = i;
+						}
+					}
+					if( twoPairLc > -1 ){
+						isTwoPair = true;
+					}
+				}
+				else{
+					for( int i = 1; i < 13; i++ ){
+						if( pairs[i] == true ){
+							twoPairLc = twoPairHc;
+							twoPairHc = i;
+						}
+					}
+					if( twoPairLc > -1 && twoPairHc > -1 ){
+						isTwoPair = true;
+					}
+				}
+			}
+			// Pair
+			boolean isOnePair = false;
+			int onePairHc = -1;
+			if( pairs[0] == true ){
+				onePairHc = 0;
+				isOnePair = true;
+			}
+			else{
+				for( int i = 1; i<13; i++ ){
+					if( pairs[i] == true ){
+						onePairHc = i;
+						isOnePair = true;
+					}
+				}
+			}
+			
+			// summary:
+			//	quads: isQuads, quadsHc
+			//	full: isFull, fullHc, fullLc
+			//	trips: isTrips, tripsHc
+			//	2pair: isTwoPair, twoPairHc, twoPairLc
+			//	Pair: isOnePair, onePairHc
+			
+			// High Card
+			int highCard = -1;
+			if( figs[0] == 0){
+				highCard = 0;
+			}
+			else{
+				highCard = figs[6];
+			}
+			
+			//summary: highCard
+			
+			//Algorytm zwracajacy nam nasz uklad tu:
+			
+			/* 0 high card
+			 * 1 pair
+			 * 2 2 pair
+			 * 3 trips
+			 * 4 straight
+			 * 5 flush
+			 * 6 full house
+			 * 7 quads
+			 * 8 straight flush
+			 * 9 royal flush
+			*/
+			
+			if( isRFlush == true ){
+				int result[] = { 9, royHc };
+				return result;
+			}
+			else if( isSFlush == true ){
+				int result[] = { 8, royHc };
+				return result;
+			}
+			else if( isQuads == true ){
+				int result[] = { 7, quadsHc };
+				return result;
+			}
+			else if( isFull == true ){
+				int result[] = { 6, fullHc, fullLc};
+				return result;
+			}
+			else if( isFlush == true ){
+				int result[] = { 5, flushHc };
+				return result;
+			}
+			else if( isStraight == true ){
+				int result[] = { 4, straightHc };
+				return result;
+			}
+			else if( isTrips == true ){
+				int result[] = { 3, tripsHc };
+				return result;
+			}
+			else if( isTwoPair == true ){
+				int result[] = { 2, twoPairHc, twoPairLc};
+				return result;
+			}
+			else if( isOnePair == true ){
+				int result[] = { 1, onePairHc };
+				return result;
+			}
+			else{
+				int result[] = { 0, highCard };
+				return result;
+			}
+		}
+		else{
+			int c[] = {-1,-1};
+			return c;
+		}
+	}
+}

@@ -1,0 +1,12 @@
+import javax.sound.midi.*;
+
+public class PlayerOne {
+	public static void main(String[] args) {
+		
+	}
+	public static MidiEvent makeEvent(int comd, int chan, int one, int two, int tick){
+		MidiEvent event = null;
+		
+	}
+
+}
